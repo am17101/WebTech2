@@ -19,6 +19,8 @@ Route::get('/videos', function () {
     return view('videos');
 });
 
-Route::get('/contacts', function () {
+Route::get('/contact', function () {
     return view('contact');
 });
+
+Route::post('/contact/submit', 'MessagesController@submit');
