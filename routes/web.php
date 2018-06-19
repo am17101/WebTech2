@@ -19,3 +19,6 @@ Route::get('/messages', 'MessagesController@getMessages');
 Route::post('/contact/submit', 'MessagesController@submit');
 
 Route::resource('/videos', 'PostsController');
+Auth::routes();
+
+Route::get('/dashboard', 'DashboardController@index');
