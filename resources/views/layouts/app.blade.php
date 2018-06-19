@@ -11,7 +11,8 @@
     <title>WebTech2</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" ></script>
+       
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -45,11 +46,19 @@
 			@else
 	        	@include('inc.messages')
 	            @yield('content')
+
 	         @endif
 			
         </div>
-       
+
     </div>
-     
+    <footer id="footer" class="text-center">
+			<p>Copyright 2018 &copy; Krišjānis Beitāns</p>
+	</footer>
+	 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'article-ckeditor' );
+    </script>   
+    
 </body>
 </html>

@@ -7,6 +7,15 @@ use App\Post;
 
 class PostsController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except'=> ['index', 'show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -49,6 +58,7 @@ class PostsController extends Controller
         $video = new Post;
         $video->title = $request->input('title');
         $video->body = $request->input('body');
+        $video->user_id=auth()->user()->id;
         $video->save();
 
         return redirect('/videos')->with('success', 'Post created');
@@ -76,6 +86,10 @@ class PostsController extends Controller
     public function edit($id)
     {
         $video = Post::find($id);
+        //Chek for correct user
+        if(auth()->user()->id !== $video->user_id){
+           return redirect('/videos')->with('error', 'Unauthorized page'); 
+        }
         return view('edit')->with('video', $video);
     }
 
@@ -105,6 +119,10 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $video = Post::find($id);
+        //Chek for correct user
+        if(auth()->user()->id !== $video->user_id){
+           return redirect('/videos')->with('error', 'Unauthorized page'); 
+       }
         $video->delete();
         return redirect('/videos')->with('success', 'Post Removed');
     }
