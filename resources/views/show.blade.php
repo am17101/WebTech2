@@ -4,7 +4,8 @@
 <hr>
 <a href="/videos" class="btn btn-default">Go Back</a>
 <h1>{{$video->title}}</h1>
-
+<img style="width:100%" src="/storage/cover_images/{{$video->cover_image}}">
+<br><br>
 <div>
 	{!! $video->body !!}
 </div>
