@@ -52,13 +52,31 @@ class PostsController extends Controller
     {
         $this->validate($request, [
             'title'=> 'required',
-            'body'=>'required'
+            'body'=>'required',
+            'cover_image'=>'image|nullable|max:1999'
         ]);
+        //Handle File upload
+        if($request->hasFile('cover_image')){
+            //Get filename with the extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            //Get just file name
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            //Get just extention
+            $extention = $request->file('cover_image')->getClientOriginalExtension();
+            //File name to store
+            $fileNameToStore=$filename.'_'.time().'_'.$extention;
+            //Upload Image
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        }else{
+            $fileNameToStore = 'noimage.jpg';
+        }
+
         // Create post;
         $video = new Post;
         $video->title = $request->input('title');
         $video->body = $request->input('body');
         $video->user_id=auth()->user()->id;
+        $video->cover_image = $fileNameToStore;
         $video->save();
 
         return redirect('/videos')->with('success', 'Post created');
