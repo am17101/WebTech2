@@ -75,7 +75,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $video = Post::find($id);
+        return view('edit')->with('video', $video);
     }
 
     /**
@@ -87,7 +88,12 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $video = Post::find($id);
+        $video->title = $request->input('title');
+        $video->body = $request->input('body');
+        $video->save();
+
+        return redirect('/videos')->with('success', 'Post updated');
     }
 
     /**
@@ -98,6 +104,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $video = Post::find($id);
+        $video->delete();
+        return redirect('/videos')->with('success', 'Post Removed');
     }
 }
