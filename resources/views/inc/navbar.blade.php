@@ -12,7 +12,13 @@
               <a class="nav-link" href="/videos">Videos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="/contacts">Contacts</a>
+              <a class="nav-link disabled" href="/contact">Contacts</a>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+              <a class="nav-link disabled" href="/videos/create">Create Post</a></li>
             </li>
           </ul>
           <form class="form-inline mt-2 mt-md-0">

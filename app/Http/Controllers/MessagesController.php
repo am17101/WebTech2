@@ -21,6 +21,12 @@ class MessagesController extends Controller
     	$message->save();
 
     	//redirect
-    	return redirect('/');
+    	return redirect('contact')->with('success', 'Message Sent');
+    }
+
+    public function getMessages(){
+    	$messages = Message::all();
+
+    	return view('messages')->with('messages', $messages);
     }
 }

@@ -11,16 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/videos', function () {
-    return view('videos');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/', 'PagesController@getHome');
+Route::get('/videos', 'PagesController@getVideos');
+Route::get('/contact', 'PagesController@getContact');
+Route::get('/messages', 'MessagesController@getMessages');
 
 Route::post('/contact/submit', 'MessagesController@submit');
+
+Route::resource('/videos', 'PostsController');
