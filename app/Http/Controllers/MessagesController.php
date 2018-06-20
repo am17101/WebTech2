@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Message;
-
+Use Gate;
 class MessagesController extends Controller
 {
     public function submit(Request $request){
@@ -24,7 +24,11 @@ class MessagesController extends Controller
     	return redirect('contact')->with('success', 'Message Sent');
     }
 
+
     public function getMessages(){
+        if(!Gate::allows('isAdmin')){
+            abort(404,"Sorry, you can not access this");
+            }
     	$messages = Message::all();
 
     	return view('messages')->with('messages', $messages);
