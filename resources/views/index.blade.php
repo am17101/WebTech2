@@ -12,5 +12,5 @@ Our event is called TEDxRiga, where x = independently organized TED event. At ou
 
 @section('sidebar')
 	@parent
-	<p>This is appended to the sidebar</p>
+	
 @endsection
