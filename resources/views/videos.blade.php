@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Video Posts</h1>
+<h1>Posts</h1>
 
 	@if(count($videos)>0)
 		@foreach($videos as $video)

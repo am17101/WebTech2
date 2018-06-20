@@ -149,7 +149,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
-
+        OwenIt\Auditing\AuditingServiceProvider::class,
         /*
          * Package Service Providers...
          */

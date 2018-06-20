@@ -13,7 +13,7 @@
                   <a class="nav-link disabled" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link disabled" href="/videos">Videos</a>
+                  <a class="nav-link disabled" href="/videos">Posts</a>
                 </li>
                 <li class="nav-item active">
                   <a class="nav-link disabled" href="/contact">Contacts</a>
