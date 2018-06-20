@@ -33,6 +33,7 @@
                       <li class="nav-item">
                           <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                       </li>
+
                   @else
                       
                       
@@ -57,7 +58,21 @@
                       </li>
 
                   @endguest
+                  <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                              Language <span class="caret"></span>
+                          </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="en">Eng</a>
+                  <a class="dropdown-item" href="es">Es</a>
+                </div>
+
+                  </li>
               </ul>
+              
+              
+              
+
           </div>
       </div>
   </nav>

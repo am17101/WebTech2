@@ -14,6 +14,7 @@
 Route::get('/', 'PagesController@getHome');
 Route::get('/videos', 'PagesController@getVideos');
 Route::get('/contact', 'PagesController@getContact');
+
 Route::get('/messages', 'MessagesController@getMessages');
 
 Route::post('/contact/submit', 'MessagesController@submit');
@@ -22,3 +23,11 @@ Route::resource('/videos', 'PostsController');
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
+
+Route::post('/language-choser', 'LanguageController@changeLanguage');
+Route::post('/language', array(
+	'before'=> 'csrf',
+	'as'=>'language-choser',
+	'uses'=>'LanguageController@changeLanguage',
+	)
+);
