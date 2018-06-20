@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Home</h1>
+<h1>@lang('app.home')</h1>
 <h2>What is TedX</h2>
 <p>In the spirit of ideas worth spreading, TED has created a program called TEDx. TEDx is a program of local, self-organized events that bring people together to share a TED-like experience.
 

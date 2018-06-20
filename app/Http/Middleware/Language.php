@@ -1,12 +1,7 @@
 <?php
-
 namespace App\Http\Middleware;
-
 use Closure;
-use Session;
-use App;
-use Config;
-
+use Illuminate\Support\Facades\App;
 class Language
 {
     /**
@@ -18,13 +13,10 @@ class Language
      */
     public function handle($request, Closure $next)
     {
-        if (Session::has('locale')){
-            $locale=Session::get('locale', Config::get('app.locale'));
-        }else{
-            $locale= 'en';
+        $lang = $request->cookie('language');
+        if (!empty($lang)) {
+            App::setLocale($lang);
         }
-
-        App::setLocale($locale);
         return $next($request);
     }
 }

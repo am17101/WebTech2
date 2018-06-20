@@ -10,7 +10,13 @@
                 <div class="card-body">
                    
                    <a href="/videos/create" class="btn btn-primary">Create Post</a>
+                   @can('isAdmin')
+                          <a class="btn btn-primary" href="/messages">Messages</a>
+                          <a class="btn btn-primary" href="/twitterUserTimeLine">Send tweet</a>
+                    @endcan
+
                    <hr>
+
                     <h3>Posts Created by You</h3>
                     <table class="table table-striped">
                         <tr>

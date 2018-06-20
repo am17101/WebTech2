@@ -10,13 +10,13 @@
               <!-- Left Side Of Navbar -->
               <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
-                  <a class="nav-link disabled" href="/">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link disabled" href="/">@lang('app.home') <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link disabled" href="/videos">Posts</a>
+                  <a class="nav-link disabled" href="/videos">@lang('app.posts')</a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link disabled" href="/contact">Contacts</a>
+                  <a class="nav-link disabled" href="/contact">@lang('app.contacts')</a>
                 </li>
               </ul>
 
@@ -35,11 +35,7 @@
                       </li>
 
                   @else
-                      @can('isAdmin')
-                      <li class="nav-item active">
-                          <a class="nav-link disabled" href="/messages">Messages</a>
-                      </li>
-                      @endcan
+                      
                       <li class="nav-item dropdown">
                           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                               {{ Auth::user()->name }} <span class="caret"></span>

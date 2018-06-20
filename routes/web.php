@@ -11,7 +11,13 @@
 |
 */
 
-Route::get('/', 'PagesController@getHome');
+//Route::get('/', 'PagesController@getHome');
+Route::get('/',function()
+{
+	App::setlocale('lv');
+	return view('/index');
+});
+
 Route::get('/videos', 'PagesController@getVideos');
 Route::get('/contact', 'PagesController@getContact');
 
@@ -24,10 +30,7 @@ Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
 
-Route::post('/language-choser', 'LanguageController@changeLanguage');
-Route::post('/language', array(
-	'before'=> 'csrf',
-	'as'=>'language-choser',
-	'uses'=>'LanguageController@changeLanguage',
-	)
-);
+Route::get('lang/{locale}','LanguageController');
+
+Route::get('twitterUserTimeLine', 'TwitterController@twitterUserTimeLine');
+Route::post('tweet', ['as'=>'post.tweet','uses'=>'TwitterController@tweet']);

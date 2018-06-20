@@ -150,6 +150,7 @@ return [
         Unisharp\Ckeditor\ServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
         OwenIt\Auditing\AuditingServiceProvider::class,
+        Thujohn\Twitter\TwitterServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -214,7 +215,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
-
+        'Twitter' => Thujohn\Twitter\Facades\Twitter::class,
     ],
 
 ];
